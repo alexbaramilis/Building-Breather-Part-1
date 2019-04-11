@@ -19,7 +19,8 @@ extension UILabel {
         for index in text.indicesOfDecimalDigits {
             let range = NSRange(location: index, length: 1)
             attributedString.setAttributes([.font: subscriptFont,
-                                            .baselineOffset: subscriptOffset], range: range)
+                                            .baselineOffset: subscriptOffset],
+                                           range: range)
         }
         self.attributedText = attributedString
     }

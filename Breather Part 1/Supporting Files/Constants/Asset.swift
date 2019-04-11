@@ -13,27 +13,26 @@ enum Asset {
     ///
     /// Some icon codes have the same weather icon representing them.
     static func forIconCode(_ iconCode: String) -> String {
-        guard let asset = assetForIconCode[iconCode] else { return "" }
-        return asset
+        switch iconCode {
+        case "01d": return "01d.png" // clear sky (day)
+        case "01n": return "01n.png" // clear sky (night)
+        case "02d": return "02d.png" // few clouds (day)
+        case "02n": return "02n.png" // few clouds (night)
+        case "03d": return "03d.png" // scattered clouds (day)
+        case "03n": return "03d.png" // same icon for night
+        case "04d": return "04d.png" // broken clouds (day)
+        case "04n": return "04d.png" // same icon for night
+        case "09d": return "09d.png" // shower rain (day)
+        case "09n": return "09d.png" // same icon for night
+        case "10d": return "10d.png" // rain (day)
+        case "10n": return "10n.png" // rain (night)
+        case "11d": return "11d.png" // thunderstorm (day)
+        case "11n": return "11d.png" // same icon for night
+        case "13d": return "13d.png" // snow (day)
+        case "13n": return "13d.png" // same icon for night
+        case "50d": return "50d.png" // mist (day)
+        case "50n": return "50d.png" // same icon for night
+        default: return "" // better UX to set a placeholder image
+        }
     }
-    private static let assetForIconCode = [
-        "01d": "01d.png", // clear sky (day)
-        "01n": "01n.png", // clear sky (night)
-        "02d": "02d.png", // few clouds (day)
-        "02n": "02n.png", // few clouds (night)
-        "03d": "03d.png", // scattered clouds (day)
-        "03n": "03d.png", // same icon for night
-        "04d": "04d.png", // broken clouds (day)
-        "04n": "04d.png", // same icon for night
-        "09d": "09d.png", // shower rain (day)
-        "09n": "09d.png", // same icon for night
-        "10d": "10d.png", // rain (day)
-        "10n": "10n.png", // rain (night)
-        "11d": "11d.png", // thunderstorm (day)
-        "11n": "11d.png", // same icon for night
-        "13d": "13d.png", // snow (day)
-        "13n": "13d.png", // same icon for night
-        "50d": "50d.png", // mist (day)
-        "50n": "50d.png"  // same icon for night
-    ]
 }

@@ -13,16 +13,15 @@ enum Text {
     ///
     /// The ranges and labels are the same for AQI US and AQI China.
     static func forAQI(_ aqi: Int) -> String {
-        guard let text = textForAQI[aqi] else { return "Invalid Data" }
-        return text
+        switch aqi {
+        case 0...50: return "Good"
+        case 51...100: return "Moderate"
+        case 101...150: return "Unhealthy for Sensitive Groups"
+        case 151...200: return "Unhealthy"
+        case 201...300: return "Very Unhealthy"
+        case 301...500: return "Hazardous"
+        case 501...Int.max: return "F**k"
+        default: return "Invalid Data"
+        }
     }
-    private static let textForAQI = [
-        0...50: "Good",
-        51...100: "Moderate",
-        101...150: "Unhealthy for Sensitive Groups",
-        151...200: "Unhealthy",
-        201...300: "Very Unhealthy",
-        301...500: "Hazardous",
-        501...Int.max: "F**k"
-    ]
 }
