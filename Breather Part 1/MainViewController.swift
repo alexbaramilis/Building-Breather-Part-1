@@ -60,7 +60,8 @@ extension MainViewController {
         airQualityLabel.textColor = Color.forAQI(data.pollution.aqiUS)
         aqiUSLabel.text = "AQI (US): \(data.pollution.aqiUS)"
         aqiChinaLabel.text = "AQI (China): \(data.pollution.aqiChina)"
-        mainPollutantsLabel.setAttributedTextWithSubscriptDecimalDigits(text: "Main pollutants: \(data.pollution.mainPollutantUS.uppercased())")
+        let text = "Main pollutants: \(data.pollution.mainPollutantUS.uppercased())"
+        mainPollutantsLabel.setAttributedTextWithSubscriptDecimalDigits(text: text)
         asthmaRiskLabel.text = data.asthma.risk.capitalized
         asthmaRiskLabel.textColor = Color.forAsthmaRisk(data.asthma.risk)
         asthmaProbabilityLabel.text = "Probability: \(data.asthma.probability)%"

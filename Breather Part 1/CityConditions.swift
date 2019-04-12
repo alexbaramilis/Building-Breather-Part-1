@@ -13,26 +13,6 @@ struct CityConditions {
     let weather: Weather
     let pollution: Pollution
     let asthma: Asthma
-
-    static func sampleData() -> CityConditions {
-        let weather = Weather(timestamp: "2019-04-10T15:00:00.000Z",
-                              humidity: 40,
-                              iconCode: "03d",
-                              pressure: 1009,
-                              temperature: 12,
-                              windDirection: 310,
-                              windSpeed: 7.7)
-        let pollution = Pollution(timestamp: "2019-04-10T12:00:00.000Z",
-                                  aqiUS: 7,
-                                  mainPollutantUS: "p2",
-                                  aqiChina: 3,
-                                  mainPollutantChina: "p2")
-        let asthma = Asthma(risk: "medium", probability: 62)
-        return CityConditions(city: "New York",
-                              weather: weather,
-                              pollution: pollution,
-                              asthma: asthma)
-    }
 }
 
 struct Weather {
@@ -54,6 +34,29 @@ struct Pollution {
 }
 
 struct Asthma {
-    let risk: String // "high", "medium" or "low" risk of adverse respiratory conditions
-    let probability: Int // probability of adverse respiratory conditions
+    let risk: String // risk of adverse respiratory conditions: "high", "medium" or "low"
+    let probability: Int // probability of adverse respiratory conditions: ex. 64 (%)
+}
+
+extension CityConditions {
+    static func sampleData() -> CityConditions {
+        let weather = Weather(timestamp: "2019-04-10T15:00:00.000Z",
+                              humidity: 40,
+                              iconCode: "03d",
+                              pressure: 1009,
+                              temperature: 12,
+                              windDirection: 310,
+                              windSpeed: 7.7)
+        let pollution = Pollution(timestamp: "2019-04-10T12:00:00.000Z",
+                                  aqiUS: 7,
+                                  mainPollutantUS: "p2",
+                                  aqiChina: 3,
+                                  mainPollutantChina: "p2")
+        let asthma = Asthma(risk: "medium",
+                            probability: 62)
+        return CityConditions(city: "New York",
+                              weather: weather,
+                              pollution: pollution,
+                              asthma: asthma)
+    }
 }

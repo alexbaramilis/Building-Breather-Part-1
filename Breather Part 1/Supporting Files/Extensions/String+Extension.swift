@@ -14,7 +14,8 @@ extension String {
         var indices = [Int]()
         var searchStartIndex = self.startIndex
         while searchStartIndex < self.endIndex,
-            let range = self.rangeOfCharacter(from: CharacterSet.decimalDigits, range: searchStartIndex..<self.endIndex),
+            let range = self.rangeOfCharacter(from: CharacterSet.decimalDigits,
+                                              range: searchStartIndex..<self.endIndex),
             !range.isEmpty
         {
             let index = distance(from: self.startIndex, to: range.lowerBound)

@@ -9,7 +9,8 @@
 import UIKit
 
 extension UILabel {
-    /// Sets the attributedText of the label with an attributed string that subscripts all the decimal digits in the given text.
+    /// Sets the attributedText of the label with an attributed string
+    /// that subscripts all the decimal digits in the given text.
     func setAttributedTextWithSubscriptDecimalDigits(text: String) {
         let font = self.font!
         let subscriptFont = font.withSize(font.pointSize * 0.7)
