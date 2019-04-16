@@ -40,20 +40,20 @@ struct Asthma {
 
 extension CityConditions {
     static func sampleData() -> CityConditions {
-        let weather = Weather(timestamp: "2019-04-10T15:00:00.000Z",
-                              humidity: 40,
-                              iconCode: "03d",
-                              pressure: 1009,
-                              temperature: 12,
-                              windDirection: 310,
-                              windSpeed: 7.7)
-        let pollution = Pollution(timestamp: "2019-04-10T12:00:00.000Z",
-                                  aqiUS: 7,
+        let weather = Weather(timestamp: "2019-04-16T11:00:00.000Z",
+                              humidity: 36,
+                              iconCode: "01d",
+                              pressure: 1015,
+                              temperature: 5,
+                              windDirection: 300,
+                              windSpeed: 9.8)
+        let pollution = Pollution(timestamp: "2019-04-16T08:00:00.000Z",
+                                  aqiUS: 9,
                                   mainPollutantUS: "p2",
                                   aqiChina: 3,
                                   mainPollutantChina: "p2")
         let asthma = Asthma(risk: "medium",
-                            probability: 62)
+                            probability: 63)
         return CityConditions(city: "New York",
                               weather: weather,
                               pollution: pollution,

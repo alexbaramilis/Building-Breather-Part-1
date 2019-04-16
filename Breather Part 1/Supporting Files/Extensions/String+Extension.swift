@@ -9,8 +9,11 @@
 import Foundation
 
 extension String {
-    /// Returns the indices of all the decimal digits in the string.
-    var indicesOfDecimalDigits: [Int] {
+    /// Returns the indices of all the numbers in the string.
+    ///
+    /// If a number is directly preceded by a dot/comma, the index of the dot/comma will also be returned.
+    /// This accounts for potential numbers with decimal or thousands separators.
+    var indicesOfNumbers: [Int] {
         var indices = [Int]()
         var searchStartIndex = self.startIndex
         while searchStartIndex < self.endIndex,
@@ -19,6 +22,12 @@ extension String {
             !range.isEmpty
         {
             let index = distance(from: self.startIndex, to: range.lowerBound)
+            if index > 0,
+                let previousCharacter = self[self.index(self.startIndex, offsetBy: index - 1)].unicodeScalars.first,
+                (previousCharacter == "." || previousCharacter == ",")
+            {
+                indices.append(index - 1)
+            }
             indices.append(index)
             searchStartIndex = range.upperBound
         }

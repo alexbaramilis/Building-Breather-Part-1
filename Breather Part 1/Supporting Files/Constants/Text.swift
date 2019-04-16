@@ -24,4 +24,17 @@ enum Text {
         default: return "Invalid Data"
         }
     }
+
+    /// Returns the pollutant name corresponding to the pollutant code returned by the API.
+    static func forMainPollutant(_ mainPollutant: String) -> String {
+        switch mainPollutant {
+        case "p2": return "PM2.5" // Particulate matter with a diameter of 2.5 μm or less
+        case "p1": return "PM10" // Particulate matter with a diameter between 2.5 μm and 10 μm
+        case "o3": return "O3" // Ozone
+        case "n2": return "NO2" // Nitrogen dioxide
+        case "s2": return "SO2" // Sulfur dioxide
+        case "co": return "CO" // Carbon monoxide
+        default: return "Unknown Code"
+        }
+    }
 }
