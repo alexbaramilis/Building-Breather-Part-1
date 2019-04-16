@@ -17,12 +17,12 @@ struct CityConditions {
 
 struct Weather {
     let timestamp: String // timestamp: ex. "2018-12-04T18:00:00.000Z" (ISO 8601) (Z stands for UTC)
-    let humidity: Int // humidity: 93 (%)
     let iconCode: String // weather icon code: ex. "10n"
-    let pressure: Int // atmospheric pressure: ex. 1022 (hPa)
     let temperature: Int // temperature: ex. 6 (Celsius)
-    let windDirection: Int // wind direction as an angle of 360° (N=0, E=90, S=180, W=270): ex. 145
+    let humidity: Int // humidity: 93 (%)
+    let pressure: Int // atmospheric pressure: ex. 1022 (hPa)
     let windSpeed: Float // wind speed: ex. 2.26 (m/s)
+    let windDirection: Int // wind direction as an angle of 360° (N=0, E=90, S=180, W=270): ex. 145
 }
 
 struct Pollution {
@@ -41,12 +41,12 @@ struct Asthma {
 extension CityConditions {
     static func sampleData() -> CityConditions {
         let weather = Weather(timestamp: "2019-04-16T11:00:00.000Z",
-                              humidity: 36,
                               iconCode: "01d",
-                              pressure: 1015,
                               temperature: 5,
-                              windDirection: 300,
-                              windSpeed: 9.8)
+                              humidity: 36,
+                              pressure: 1015,
+                              windSpeed: 9.8,
+                              windDirection: 300)
         let pollution = Pollution(timestamp: "2019-04-16T08:00:00.000Z",
                                   aqiUS: 9,
                                   mainPollutantUS: "p2",
